@@ -1,0 +1,32 @@
+config_updater:
+  config_file: prow/config.yaml
+  plugin_file: prow/plugins.yaml
+  maps:
+    prow/jobs/**/*.yaml:
+      name: job-config
+    prow/config.yaml:
+      name: config
+    prow/plugins.yaml:
+      name: plugins
+
+
+plugins:
+  PoojaGidaveer/test-infra:
+    plugins:
+    - approve
+    - assign
+    - cat
+    - dog
+    - heart
+    - help
+    - hold
+    - label
+    - lgtm
+    - lifecycle
+    - size
+    - shrug
+    - skip
+    - trigger
+    - wip
+    - config-updater
+  
