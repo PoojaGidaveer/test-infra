@@ -4,9 +4,9 @@
 periodics:
 - interval: 10m
   agent: kubernetes
-  name: echo-test-cli
+  name: jmeter
   spec:
     containers:
-    - image: alpine
+    - image: i331641/jmeter-sel-chrome:0.1.1
       imagePullPolicy: IfNotPresent
-      command: ["/bin/date"]
+      command: [ "/bin/bash", "-c", "jmeter -n -t kyma-web-pipeline.jmx"]

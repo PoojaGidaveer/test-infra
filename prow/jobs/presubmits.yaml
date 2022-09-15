@@ -1,0 +1,16 @@
+# Sample job: This will echo `date` after every 10 minute interval via a k8s pod.
+presubmits:
+  PoojaGidaveer/test-infra: 
+  - agent: kubernetes
+    name: jmeter-presubmits
+    always_run: true 
+    path_alias: github.com/PoojaGidaveer/test-infra
+    branches:
+      - ^master$
+      - ^main$
+    spec:
+      containers:
+      - image: i331641/jmeter-sel-chrome:0.1.1
+        imagePullPolicy: IfNotPresent
+        command: [ "/bin/bash", "-c", "jmeter -n -t kyma-web-pipeline.jmx"]
+
