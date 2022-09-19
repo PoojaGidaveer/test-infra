@@ -12,5 +12,5 @@ presubmits:
       containers:
       - image: i331641/jmeter-sel-chrome:0.1.1
         imagePullPolicy: IfNotPresent
-        command: [ "/bin/bash", "-c", "jmeter -n -t kyma-web-pipeline.jmx"]
+        command: [ "/bin/bash", "-c", "jmeter -n -t kyma-web-pipeline.jmx -e -l pipeline/log.jtl -o pipeline"]
 
