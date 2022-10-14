@@ -10,7 +10,8 @@ presubmits:
       - ^main$
     spec:
       containers:
-      - image: i331641/jmeter-sel-chrome:0.1.1
+      - image: i331641/kyma-perf:v1
         imagePullPolicy: IfNotPresent
-        command: [ "/bin/bash", "-c", "jmeter -n -t kyma-web-pipeline.jmx"]
+        command: [ "/bin/bash", "-c"]
+        args: ["jmeter -n -t  kyma-web-pipeline.jmx -Jkubeconfig=kubeconfig--perftests--ngrinder.yaml -Jdomain=kyma.tools.perfteam.sapcloud.io -e -l results/log -o results/; cd results; google-chrome index.html"]
 
